@@ -27,7 +27,7 @@
     "url": "https://github.com/tjwebb/sails-auth/issues"
   },
   "homepage": "https://github.com/tjwebb/sails-auth",
-  "dependencies": {
+  "devDependencies": {
     "sails-generate-auth": "git://github.com/tjwebb/sails-generate-auth"
   }
 }
