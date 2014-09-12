@@ -1,0 +1,33 @@
+{
+  "name": "sails-auth",
+  "version": "0.0.0",
+  "description": "Wrapper module for sails-generate-auth generator that includes the required dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tjwebb/sails-auth.git"
+  },
+  "keywords": [
+    "sails",
+    "sails.js",
+    "authentication",
+    "auth",
+    "passport",
+    "oauth",
+    "oauth2",
+    "passport.js",
+    "generator"
+  ],
+  "author": "Travis Webb <me@traviswebb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjwebb/sails-auth/issues"
+  },
+  "homepage": "https://github.com/tjwebb/sails-auth",
+  "dependencies": {
+    "sails-generate-auth": "git://github.com/tjwebb/sails-generate-auth"
+  }
+}
