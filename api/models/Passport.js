@@ -8,11 +8,12 @@ var bcrypt = require('bcryptjs');
  */
 function hashPassword (passport, next) {
   if (passport.password) {
-    bcrypt.hash(passport.password, 10, function (err, hash) {
+    bcrypt.hash(passport.password, 16, function (err, hash) {
       passport.password = hash;
       next(err, passport);
     });
-  } else {
+  }
+  else {
     next(null, passport);
   }
 }

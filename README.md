@@ -14,8 +14,33 @@ $ npm install sails-auth --save
 $ sails generate auth-api
 ```
 
+## Entities
+#### Models
+- Passport
+#### Controllers
+- AuthController
+#### Policies
+- passport
+#### Services
+- passport
+- protocols/local
+- protocols/oauth
+- protocols/oauth2
+- protocols/openid
+#### Config
+- passport.local
+- [passport.google](http://passportjs.org/guide/google/)
+- [passport.twitter](http://passportjs.org/guide/twitter/)
+- [passport.github](https://github.com/jaredhanson/passport-github)
+- [passport.facebook](http://passportjs.org/guide/facebook/)
+
 ## License
 MIT
+
+## Related Projects
+- [**sails-generate-authentication-api**](https://github.com/tjwebb/sails-generate-authentication-api)
+- [**sails-permissions**](https://github.com/tjwebb/sails-permissions)
+- [**sails-generate-auth**](https://github.com/kasperisager/sails-generate-auth)
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
