@@ -36,7 +36,8 @@
   },
   "dependencies": {
     "bcryptjs": "^2.0.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sails-generate-entities": "^0.10.2"
   },
   "optionalDependencies": {
     "passport-facebook": "^1.0.3",
