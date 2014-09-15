@@ -18,8 +18,12 @@
     "passport",
     "oauth",
     "oauth2",
+    "openid",
     "passport.js",
-    "generator"
+    "generator",
+    "google",
+    "facebook",
+    "twitter"
   ],
   "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
@@ -33,5 +37,14 @@
   "dependencies": {
     "bcryptjs": "^2.0.2",
     "passport-local": "^1.0.0"
-  }
+  },
+  "optionalDependencies": {
+    "passport-facebook": "^1.0.3",
+    "passport-google": "^0.3.0",
+    "passport-twitter": "^1.0.2"
+  },
+  "bundledDependencies": [
+    "bcryptjs",
+    "passport-local"
+  ]
 }
