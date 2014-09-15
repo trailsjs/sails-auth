@@ -5,3 +5,13 @@ node_js:
 
 notifications:
   email: false
+
+deploy:
+  provider: npm
+  email: me@traviswebb.com
+  api_key:
+    secure: R+k+MLvkT++OwuGY3ruDBTuzfSVpG8BXv1jIyBXpp4qgfQ4lEfmtuj9A8/vT/Q1EKNeK+F7LULPHR9a2vjSHxotC9FyBNGPMU92QVAhhznRjhkS7kKSRX2RgCwG96w1sRmrYlw0AXN0f72UPuIaLAwRfCbvVc5/PzvxHtWIGFaY=
+  on:
+    tags: true
+    repo: tjwebb/sails-auth
+    all_branches: true
