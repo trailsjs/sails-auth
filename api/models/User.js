@@ -8,7 +8,7 @@ module.exports = {
     },
     email: {
       type: 'email',
-      required: true,
+      notNull: true,
       unique: true
     },
     passports: {
