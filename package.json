@@ -45,5 +45,8 @@
   "bundledDependencies": [
     "bcryptjs",
     "passport-local"
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
 }
