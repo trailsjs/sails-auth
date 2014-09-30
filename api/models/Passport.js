@@ -8,9 +8,16 @@ var bcrypt = require('bcryptjs');
  */
 function hashPassword (passport, next) {
   if (passport.password) {
-    bcrypt.hash(passport.password, 16, function (err, hash) {
+    var t0 = new Date().valueOf();
+    bcrypt.hash(passport.password, 8, function (err, hash) {
+      if (err) {
+        sails.log.error(err);
+        throw err;
+      }
       passport.password = hash;
-      next(err, passport);
+      var t1 = new Date().valueOf();
+      sails.log('hashed password for user in', (t1 - t0), 'ms');
+      next(err);
     });
   }
   else {
