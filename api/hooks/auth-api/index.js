@@ -6,6 +6,8 @@ module.exports = function (sails) {
       configurePolicies(sails);
       configureRoutes(sails);
       configureHttp(sails);
+
+      sails.services.passport.loadStrategies();
     }
   };
 
@@ -18,7 +20,9 @@ function configurePolicies (sails) {
   if (policies['*'] === true) {
     policies['*'] = [ ];
   }
-  policies['*'].push('passport');
+  if (!_.contains(policies['*'], 'passport')) {
+    policies['*'].push('passport');
+  }
 
 }
 function configureRoutes (sails) {
@@ -31,7 +35,8 @@ function configureRoutes (sails) {
     'post /auth/local/:action': 'AuthController.callback',
 
     'get /auth/:provider': 'AuthController.provider',
-    'get /auth/:provider/callback': 'AuthController.callback'
+    'get /auth/:provider/callback': 'AuthController.callback',
+    'get /auth/:provider/:action': 'AuthController.callback'
   });
 }
 function configureHttp (sails) {
