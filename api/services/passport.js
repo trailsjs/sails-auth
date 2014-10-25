@@ -1,6 +1,6 @@
-var path     = require('path')
-  , url      = require('url')
-  , passport = require('passport');
+var path = require('path');
+var url = require('url');
+var passport = require('passport');
 
 /**
  * Passport Service
@@ -63,16 +63,15 @@ passport.protocols = require('./protocols');
  * @param {Function} next
  */
 passport.connect = function (req, query, profile, next) {
-  var strategies = sails.config.passport
-    , user       = {}
-    , provider;
+  var strategies = sails.config.passport;
+  var user = { };
 
   // Get the authentication provider from the query.
   query.provider = req.param('provider');
 
   // Use profile.provider or fallback to the query.provider if it is undefined
   // as is the case for OpenID, for example
-  provider = profile.provider || query.provider;
+  var provider = profile.provider || query.provider;
 
   // If the provider cannot be identified we cannot match it to a passport so
   // throw an error and let whoever's next in line take care of it.
@@ -190,9 +189,9 @@ passport.connect = function (req, query, profile, next) {
  * @param  {Object} res
  */
 passport.endpoint = function (req, res) {
-  var strategies = sails.config.passport
-    , provider   = req.param('provider')
-    , options    = {};
+  var strategies = sails.config.passport;
+  var provider = req.param('provider');
+  var options = { };
 
   // If a provider doesn't exist for this endpoint, send the user back to the
   // login page
@@ -222,8 +221,8 @@ passport.endpoint = function (req, res) {
  * @param {Function} next
  */
 passport.callback = function (req, res, next) {
-  var provider = req.param('provider', 'local')
-    , action   = req.param('action');
+  var provider = req.param('provider', 'local');
+  var action = req.param('action');
 
   // Passport.js wasn't really built for local user registration, but it's nice
   // having it tied into everything else.
@@ -275,11 +274,12 @@ passport.callback = function (req, res, next) {
  *
  */
 passport.loadStrategies = function () {
-  var self       = this
-    , strategies = sails.config.passport;
+  var self = this;
+  var strategies = sails.config.passport;
 
   Object.keys(strategies).forEach(function (key) {
-    var options = { passReqToCallback: true }, Strategy;
+    var options = { passReqToCallback: true };
+    var Strategy;
 
     if (key === 'local') {
       // Since we need to allow users to login using both usernames as well as
@@ -293,8 +293,8 @@ passport.loadStrategies = function () {
         self.use(new Strategy(options, self.protocols.local.login));
       }
     } else {
-      var protocol = strategies[key].protocol
-        , callback = strategies[key].callback;
+      var protocol = strategies[key].protocol;
+      var callback = strategies[key].callback;
 
       if (!callback) {
         callback = path.join('auth', key, 'callback');
@@ -334,9 +334,8 @@ passport.loadStrategies = function () {
  * @param  {Object} res
  */
 passport.disconnect = function (req, res, next) {
-
-  var user     = req.user
-    , provider = req.param('provider');
+  var user = req.user;
+  var provider = req.param('provider');
 
   Passport.findOne({
       provider   : provider,
@@ -350,13 +349,19 @@ passport.disconnect = function (req, res, next) {
   });
 };
 
-
 passport.serializeUser(function (user, next) {
   next(null, user.id);
 });
 
 passport.deserializeUser(function (id, next) {
-  User.findOne(id, next);
+  User.findOne(id)
+    .then(function (user) {
+      next(null, user || null);
+    })
+    .catch(function (error) {
+      next(error);
+    });
+
 });
 
 module.exports = passport;

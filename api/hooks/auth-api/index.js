@@ -3,9 +3,9 @@ var _ = require('lodash');
 module.exports = function (sails) {
   return {
     configure: function () {
-      configurePolicies(sails);
+      ///configurePolicies(sails);
       configureRoutes(sails);
-      configureHttp(sails);
+      //configureHttp(sails);
 
       sails.services.passport.loadStrategies();
     }
@@ -14,6 +14,7 @@ module.exports = function (sails) {
 };
 
 function configurePolicies (sails) {
+  // XXX there's probably a cleaner way to do this...
   var policies = sails.config.policies;
   policies['*'] = policies['*'] || [ ];
 
