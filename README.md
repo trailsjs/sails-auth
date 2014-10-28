@@ -36,26 +36,40 @@ module.exports.http = {
 }
 ```
 
+#### config/routes.js
+```js
+module.exports.routes = {
+  ...
+};
+_.extend(exports.routes, require('sails-auth/config/routes'));
+```
+
+#### config/policies.js
+```js
+  '*': [ 'passport', 'sessionAuth' ],
+
+  AuthController: {
+    '*': true
+  }
+```
+
 ## Entities
 
-#### Models
-- Passport
-- 
-#### Controllers
-- AuthController
-- 
-#### Policies
-- passport
-- 
-#### Services
-- passport
-- protocols/local
-- protocols/oauth
-- protocols/oauth2
-- protocols/openid
-- 
-#### Config
-- passport.local
+- **Models**
+  - Passport
+- **Controllers**
+  - AuthController
+- **Policies**
+  - passport
+- **Services**
+  - passport
+  - protocols/local
+  - protocols/oauth
+  - protocols/oauth2
+  - protocols/openid
+
+
+#### Passport Protocols
 - [passport.google](http://passportjs.org/guide/google/)
 - [passport.twitter](http://passportjs.org/guide/twitter/)
 - [passport.github](https://github.com/jaredhanson/passport-github)
