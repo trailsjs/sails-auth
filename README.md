@@ -17,6 +17,17 @@ $ sails generate auth-api
 ```
 
 ### 2. update configs
+#### config/bootstrap.js
+
+```js
+module.exports.bootstrap = function (next) {
+  ...
+  sails.services.passport.loadStrategies();
+  ...
+  next();
+};
+```
+
 #### config/http.js
 ```js
 module.exports.http = {
