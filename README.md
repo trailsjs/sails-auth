@@ -10,25 +10,66 @@ $ npm install sails-auth --save
 ```
 
 ## Usage
+
+### 1. generate auth-api
 ```sh
 $ sails generate auth-api
 ```
 
+### 2. update configs
+#### config/http.js
+```js
+module.exports.http = {
+  ...
+  middleware: {
+    passportInit: require('sails-auth/node_modules/passport').initialize(),
+    passportSession: require('sails-auth/node_modules/passport').session(),
+
+    order: [
+      ...
+      'session',
+      'passportInit',
+      'passportSession',
+      ...
+    ]
+  }
+}
+```
+
+#### config/routes.js
+```js
+module.exports.routes = {
+  ...
+};
+_.extend(exports.routes, require('sails-auth/config/routes'));
+```
+
+#### config/policies.js
+```js
+  '*': [ 'passport', 'sessionAuth' ],
+
+  AuthController: {
+    '*': true
+  }
+```
+
 ## Entities
-#### Models
-- Passport
-#### Controllers
-- AuthController
-#### Policies
-- passport
-#### Services
-- passport
-- protocols/local
-- protocols/oauth
-- protocols/oauth2
-- protocols/openid
-#### Config
-- passport.local
+
+- **Models**
+  - Passport
+- **Controllers**
+  - AuthController
+- **Policies**
+  - passport
+- **Services**
+  - passport
+  - protocols/local
+  - protocols/oauth
+  - protocols/oauth2
+  - protocols/openid
+
+
+#### Passport Protocols
 - [passport.google](http://passportjs.org/guide/google/)
 - [passport.twitter](http://passportjs.org/guide/twitter/)
 - [passport.github](https://github.com/jaredhanson/passport-github)
