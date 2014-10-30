@@ -41,7 +41,7 @@ module.exports.http = {
 module.exports.routes = {
   ...
 };
-_.extend(exports.routes, require('sails-auth/config/routes'));
+_.defaults(exports.routes, require('sails-auth/config/routes'));
 ```
 
 #### config/policies.js
