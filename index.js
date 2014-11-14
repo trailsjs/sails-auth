@@ -20,7 +20,6 @@ module.exports = require('sails-generate-entities')({
     'api/services/protocols/openid.js'
   ],
   functions: [
-    'api/policies/passport.js',
-    'api/hooks/auth-api/index.js'
+    'api/policies/passport.js'
   ]
 });
