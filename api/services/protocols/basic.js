@@ -1,9 +1,8 @@
 module.exports = function (req, username, password, next) {
-  sails.log('using basic strategy for user', username, ', password', password);
+  sails.log('using basic auth strategy for user', username, ', password', password);
   User.findOne({ username: username })
     .populate('passports')
     .then(function (user) {
-      sails.log('found user', user.username);
       if (!user) {
         return next(null, false);
       }
@@ -13,11 +12,7 @@ module.exports = function (req, username, password, next) {
         user: user.id
       });
 
-      sails.log('found passport', local.id);
-      sails.log('validating password...');
-
       local.validatePassword(password, function(err, res) {
-        sails.log('passport validation complete');
         if (err) {
           return next(err);
         }
