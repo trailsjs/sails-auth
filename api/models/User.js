@@ -5,12 +5,14 @@ module.exports = {
   attributes: {
     username: {
       type: 'string',
-      unique: true
+      unique: true,
+      index: true
     },
     email: {
       type: 'email',
       notNull: true,
-      unique: true
+      unique: true,
+      index: true
     },
     passports: {
       collection: 'Passport',
