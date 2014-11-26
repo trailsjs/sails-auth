@@ -139,7 +139,7 @@ exports.connect = function (req, res, next) {
  * @param {Function} next
  */
 exports.login = function (req, identifier, password, next) {
-  var isEmail = isEmail(identifier)
+  var isEmail = validateEmail(identifier)
     , query   = {};
 
   if (isEmail) {
@@ -178,7 +178,7 @@ exports.login = function (req, identifier, password, next) {
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           } else {
-            return next(null, user);
+            return next(null, user, passport);
           }
         });
       }
@@ -198,6 +198,6 @@ var EMAIL_REGEX = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF9
  * @see <https://github.com/chriso/validator.js/blob/3.18.0/validator.js#L38>
  * @see <https://github.com/chriso/validator.js/blob/3.18.0/validator.js#L141-L143>
  */
-function isEmail (str) {
+function validateEmail (str) {
   return EMAIL_REGEX.test(str);
 }
