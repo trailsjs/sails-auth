@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var crypto = require('crypto');
 
 /** @module User */
 module.exports = {
@@ -17,6 +18,18 @@ module.exports = {
     passports: {
       collection: 'Passport',
       via: 'user'
+    },
+
+    getGravatarUrl: function () {
+      var md5 = crypto.createHash('md5');
+      md5.update(this.email);
+      return 'https://gravatar.com/avatar/'+ md5.digest('hex');
+    },
+
+    toJSON: function () {
+      var user = this.toObject();
+      user.gravatarUrl = this.getGravatarUrl();
+      return user;
     }
   },
 
