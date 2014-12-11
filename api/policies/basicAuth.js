@@ -18,7 +18,7 @@ module.exports = function (req, res, next) {
   var username = authString.split(':')[0];
   var password = authString.split(':')[1];
 
-  sails.log('authenticating', username, 'using basic auth for a single reqest:', req.url);
+  sails.log('authenticating', username, 'using basic auth:', req.url);
 
   localProtocol.login(req, username, password, function (error, user, passport) {
     if (error) {

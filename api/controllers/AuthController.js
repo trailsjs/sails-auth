@@ -169,7 +169,7 @@ var AuthController = {
         // Upon successful login, send the user to the homepage where req.user
         // will available.
         sails.log.info('user', user, 'authenticated successfully');
-        res.redirect('/');
+        return res.json(user);
       });
     });
   },
