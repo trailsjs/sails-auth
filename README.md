@@ -11,12 +11,23 @@ $ npm install lodash sails-auth --save
 
 ## Usage
 
-### 1. generate auth-api
+### 1. configure .sailsrc
+
+```json
+{
+  "generators": {
+    "permissions-api": "sails-permissions",
+    "auth-api": "sails-auth"
+  }
+}
+```
+
+### 2. run sails generator
 ```sh
 $ sails generate auth-api
 ```
 
-### 2. update configs
+### 3. update configs
 #### config/bootstrap.js
 
 ```js
