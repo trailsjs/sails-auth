@@ -77,41 +77,24 @@ _.defaults(exports.routes, require('sails-auth/config/routes'));
   }
 ```
 
-## Entities
-
-- **Models**
-  - Passport
-- **Controllers**
-  - AuthController
-- **Policies**
-  - passport
-- **Services**
-  - passport
-  - protocols/local
-  - protocols/oauth
-  - protocols/oauth2
-  - protocols/openid
-
-
 #### Passport Protocols
 - [passport.google](http://passportjs.org/guide/google/)
 - [passport.twitter](http://passportjs.org/guide/twitter/)
 - [passport.github](https://github.com/jaredhanson/passport-github)
 - [passport.facebook](http://passportjs.org/guide/facebook/)
+- et al
 
 ## License
 MIT
 
 ## Related Projects
-- [**sails-generate-authentication-api**](https://github.com/tjwebb/sails-generate-authentication-api)
 - [**sails-permissions**](https://github.com/tjwebb/sails-permissions)
-- [**sails-generate-auth**](https://github.com/kasperisager/sails-generate-auth)
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
-[npm-image]: https://img.shields.io/npm/v/sails-auth.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/sails-auth.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-auth
-[travis-image]: https://img.shields.io/travis/tjwebb/sails-auth.svg?style=flat
+[travis-image]: https://img.shields.io/travis/tjwebb/sails-auth.svg?style=flat-square
 [travis-url]: https://travis-ci.org/tjwebb/sails-auth
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-auth.svg?style=flat
+[daviddm-image]: http://img.shields.io/david/tjwebb/sails-auth.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/tjwebb/sails-auth

@@ -33,11 +33,11 @@
   "homepage": "https://github.com/tjwebb/sails-auth",
   "dependencies": {
     "bcryptjs": "^2.0.2",
-    "lodash": "^2.4.1",
+    "lodash": "^3.2",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2",
     "passport-local": "^1.0.0",
-    "sails-generate-entities": "^0.10.2"
+    "sails-generate-entities": "latest"
   },
   "optionalDependencies": {
     "passport-facebook": "^1.0.3",
@@ -46,6 +46,9 @@
   },
   "bundledDependencies": [
     "bcryptjs",
+    "lodash",
+    "passport",
+    "passport-http",
     "passport-local"
   ],
   "devDependencies": {
