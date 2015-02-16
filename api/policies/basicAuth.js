@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
     return next();
   }
   if (process.env.NODE_ENV !== 'development' && !req.secure) {
-    return res.json({ error: 'https required for basic auth. refusing login request' }, 403);
+    return res.status(403).json({ error: 'https required for basic auth. refusing login request' });
   }
 
   var authString = new Buffer(auth.split(' ')[1], 'base64').toString();
@@ -25,7 +25,7 @@ module.exports = function (req, res, next) {
       return next(error);
     }
     if (!user) {
-      return res.json({ error: 'Could not authenticate user '+ username }, 403);
+      return res.status(403).json({ error: 'Could not authenticate user '+ username });
     }
 
     req.user = user;
