@@ -15,24 +15,26 @@
  * @param {Object}   res
  * @param {Function} next
  */
-exports.register = function (req, res, next) {
+exports.register = function (user, next) {
+  /*
   var email    = req.param('email')
     , username = req.param('username')
     , password = req.param('password');
+  */
 
-  if (!email) {
+  if (!user.email) {
     req.flash('error', 'Error.Passport.Email.Missing');
-    return next(new Error('No email was entered.'));
+    return next(new Error('No email was given.'));
   }
 
-  if (!username) {
+  if (!user.username) {
     req.flash('error', 'Error.Passport.Username.Missing');
-    return next(new Error('No username was entered.'));
+    return next(new Error('No username was given.'));
   }
 
-  if (!password) {
+  if (!user.password) {
     req.flash('error', 'Error.Passport.Password.Missing');
-    return next(new Error('No password was entered.'));
+    return next(new Error('No password was given.'));
   }
 
   exports.createUser({

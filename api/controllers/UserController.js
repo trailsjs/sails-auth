@@ -6,6 +6,8 @@
  */
 
 module.exports = {
-	
+  create: function (req, res, next) {
+    sails.services.protocols.local.register(req.body, next);
+  }
 };
 
