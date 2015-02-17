@@ -16,32 +16,7 @@
  * @param {Function} next
  */
 exports.register = function (user, next) {
-  /*
-  var email    = req.param('email')
-    , username = req.param('username')
-    , password = req.param('password');
-  */
-
-  if (!user.email) {
-    req.flash('error', 'Error.Passport.Email.Missing');
-    return next(new Error('No email was given.'));
-  }
-
-  if (!user.username) {
-    req.flash('error', 'Error.Passport.Username.Missing');
-    return next(new Error('No username was given.'));
-  }
-
-  if (!user.password) {
-    req.flash('error', 'Error.Passport.Password.Missing');
-    return next(new Error('No password was given.'));
-  }
-
-  exports.createUser({
-    username: username,
-    email: email,
-    password: password
-  }, next);
+  exports.createUser(user, next);
 };
 
 /**

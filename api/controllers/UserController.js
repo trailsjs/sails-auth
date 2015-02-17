@@ -6,8 +6,12 @@
  */
 
 module.exports = {
-  create: function (req, res, next) {
-    sails.services.protocols.local.register(req.body, next);
+  create: function (req, res) {
+    sails.services.passport.protocols.local.register(req.body, function (err, user) {
+      if (err) return res.serverError(err);
+
+      res.ok(user);
+    });
   }
 };
 
