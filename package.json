@@ -1,6 +1,6 @@
 {
   "name": "sails-auth",
-  "version": "1.0.0-rc1",
+  "version": "1.0.0-rc2",
   "description": "Wrapper module for sails-generate-auth generator that includes the required dependencies",
   "main": "index.js",
   "scripts": {
