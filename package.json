@@ -1,6 +1,6 @@
 {
   "name": "sails-auth",
-  "version": "0.11.7",
+  "version": "1.0.0-rc2",
   "description": "Wrapper module for sails-generate-auth generator that includes the required dependencies",
   "main": "index.js",
   "scripts": {
@@ -32,8 +32,7 @@
   },
   "homepage": "https://github.com/tjwebb/sails-auth",
   "dependencies": {
-    "bcryptjs": "^2.0.2",
-    "lodash": "^3.2",
+    "bcryptjs": "^2.1",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2",
     "passport-local": "^1.0.0",
@@ -46,12 +45,19 @@
   },
   "bundledDependencies": [
     "bcryptjs",
-    "lodash",
     "passport",
     "passport-http",
     "passport-local"
   ],
   "devDependencies": {
     "mocha": "^1.21.4"
+  },
+  "peerDependencies": {
+    "lodash": ">2.4.0",
+    "sails": ">0.10.0"
+  },
+  "engines": {
+    "node": ">= 0.10",
+    "npm": ">= 2.3"
   }
 }

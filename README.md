@@ -6,7 +6,7 @@
 
 ## Install
 ```sh
-$ npm install lodash sails-auth --save
+$ npm install sails-auth --save
 ```
 
 ## Usage
@@ -17,7 +17,6 @@ $ npm install lodash sails-auth --save
 {
   "generators": {
     "modules": {
-      "permissions-api": "sails-permissions",
       "auth-api": "sails-auth"
     }
   }
@@ -48,14 +47,6 @@ module.exports.http = {
     ]
   }
 }
-```
-
-#### config/routes.js
-```js
-module.exports.routes = {
-  ...
-};
-_.defaults(exports.routes, require('sails-auth/config/routes'));
 ```
 
 #### config/policies.js
