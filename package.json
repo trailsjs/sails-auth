@@ -53,6 +53,11 @@
     "mocha": "^1.21.4"
   },
   "peerDependencies": {
-    "lodash": ">2.4.0"
+    "lodash": ">2.4.0",
+    "sails": ">0.10.0"
+  },
+  "engines": {
+    "node": ">= 0.10",
+    "npm": ">= 2.3"
   }
 }
