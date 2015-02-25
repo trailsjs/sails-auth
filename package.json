@@ -50,7 +50,8 @@
     "passport-local"
   ],
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "sails-disk": "^0.10.7"
   },
   "peerDependencies": {
     "lodash": ">2.4.0",

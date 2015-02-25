@@ -33,5 +33,15 @@ module.exports = {
       user.gravatarUrl = this.getGravatarUrl();
       return user;
     }
+  },
+
+  create: function (user) {
+    return new Promise(function (resolve, reject) {
+      sails.services.passport.protocols.local.createUser(user, function (error, created) {
+        if (error) return reject(error);
+
+        resolve(created);
+      });
+    });
   }
 };
