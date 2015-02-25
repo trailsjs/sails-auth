@@ -1,6 +1,6 @@
 {
   "name": "sails-auth",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "description": "Wrapper module for sails-generate-auth generator that includes the required dependencies",
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,8 @@
     "passport-local"
   ],
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "sails-disk": "^0.10.7"
   },
   "peerDependencies": {
     "lodash": ">2.4.0",
