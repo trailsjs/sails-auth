@@ -35,7 +35,10 @@ module.exports = {
     }
   },
 
-  create: function (user) {
+  /**
+   * Register a new User with a passport
+   */
+  register: function (user) {
     return new Promise(function (resolve, reject) {
       sails.services.passport.protocols.local.createUser(user, function (error, created) {
         if (error) return reject(error);
