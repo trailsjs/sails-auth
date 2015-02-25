@@ -8,7 +8,6 @@ module.exports = require('sails-generate-entities')({
     'api/controllers/UserController.js',
     'api/services/protocols/index.js',
     'config/routes/sails-auth.js',
-    'config/policies/sails-auth.js',
     'config/passport.js'
   ],
   classes: [
