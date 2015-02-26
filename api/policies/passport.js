@@ -30,6 +30,7 @@ module.exports = function (req, res, next) {
     passport.session()(req, res, function () {
       // Make the user available throughout the frontend
       res.locals.user = req.user;
+      sails.log('req.user', req.user);
 
       next();
     });

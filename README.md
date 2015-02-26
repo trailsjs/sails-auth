@@ -4,6 +4,8 @@
 [![Build status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
+Passport-based User Authentication system for sails.js applications.
+
 ## Install
 ```sh
 $ npm install sails-auth --save
@@ -23,30 +25,9 @@ $ npm install sails-auth --save
 }
 ```
 
-### 2. run sails generator
+### 2. install sails.js extension
 ```sh
 $ sails generate auth-api
-```
-
-### 3. update configs
-
-#### config/http.js
-```js
-module.exports.http = {
-  ...
-  middleware: {
-    passportInit: require('sails-auth/node_modules/passport').initialize(),
-    passportSession: require('sails-auth/node_modules/passport').session(),
-
-    order: [
-      ...
-      'session',
-      'passportInit',
-      'passportSession',
-      ...
-    ]
-  }
-}
 ```
 
 #### config/policies.js

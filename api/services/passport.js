@@ -350,7 +350,7 @@ passport.disconnect = function (req, res, next) {
 };
 
 passport.serializeUser(function (user, next) {
-  next(null, user.id);
+  next(null, user);
 });
 
 passport.deserializeUser(function (id, next) {
