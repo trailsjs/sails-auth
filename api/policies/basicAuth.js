@@ -25,10 +25,12 @@ module.exports = function (req, res, next) {
       return next(error);
     }
     if (!user) {
+      req.session.authenticated = false;
       return res.status(403).json({ error: 'Could not authenticate user '+ username });
     }
 
     req.user = user;
+    req.session.authenticated = true;
     req.session.passport = passport;
 
     next();

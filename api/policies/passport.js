@@ -1,3 +1,5 @@
+var passport = require('passport');
+
 /**
  * Passport Middleware
  *
