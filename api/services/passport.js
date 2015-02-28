@@ -1,6 +1,7 @@
 var path = require('path');
 var url = require('url');
 var passport = require('passport');
+var _ = require('lodash');
 
 /**
  * Passport Service
@@ -109,7 +110,7 @@ passport.connect = function (req, query, profile, next) {
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
-        User.create(user, function (err, user) {
+        sails.models.user.create(user, function (err, user) {
           if (err) {
             if (err.code === 'E_VALIDATION') {
               if (err.invalidAttributes.email) {
@@ -151,7 +152,7 @@ passport.connect = function (req, query, profile, next) {
           }
 
           // Fetch the user associated with the Passport
-          User.findOne(passport.user.id, next);
+          sails.models.user.findOne(passport.user.id, next);
         });
       }
     } else {
@@ -354,7 +355,7 @@ passport.serializeUser(function (user, next) {
 });
 
 passport.deserializeUser(function (id, next) {
-  User.findOne(id)
+  sails.models.user.findOne(id)
     .then(function (user) {
       next(null, user || null);
     })

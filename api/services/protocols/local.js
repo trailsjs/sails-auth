@@ -31,7 +31,7 @@ exports.register = function (user, next) {
  * @param {Function} next
  */
 exports.createUser = function (_user, next) {
-  return User.create(_user, function (err, user) {
+  return sails.models.user.create(_user, function (err, user) {
     if (err) {
       if (err.code === 'E_VALIDATION') {
         sails.log(err);
@@ -126,7 +126,7 @@ exports.login = function (req, identifier, password, next) {
     query.username = identifier;
   }
 
-  User.findOne(query, function (err, user) {
+  sails.models.user.findOne(query, function (err, user) {
     if (err) {
       return next(err);
     }
