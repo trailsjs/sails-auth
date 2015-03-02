@@ -6,6 +6,8 @@
 
 Passport-based User Authentication system for sails.js applications.
 
+For comprehensive access control and role-based permissioning, see [**sails-permissions**](https://github.com/tjwebb/sails-permissions)
+
 ## Install
 ```sh
 $ npm install sails-auth --save
@@ -48,9 +50,6 @@ $ sails generate auth-api
 
 ## License
 MIT
-
-## Related Projects
-- [**sails-permissions**](https://github.com/tjwebb/sails-permissions)
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
