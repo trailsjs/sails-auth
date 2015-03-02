@@ -6,7 +6,7 @@
 
 Passport-based User Authentication system for sails.js applications.
 
-**Note:** For comprehensive access control and role-based permissioning, see [**sails-permissions**](https://github.com/tjwebb/sails-permissions), which uses this project as a dependency.
+**Note:** For comprehensive user account control with role-based permissioning, object ownership, and row-level security, see [**sails-permissions**](https://github.com/tjwebb/sails-permissions), which uses this project as a dependency.
 
 ## Install
 ```sh
