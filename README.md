@@ -37,7 +37,7 @@ $ sails generate auth-api
   '*': [ 'basicAuth', 'passport', 'sessionAuth' ],
 
   AuthController: {
-    '*': true
+    '*': [ 'passport' ]
   }
 ```
 
