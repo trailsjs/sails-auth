@@ -30,7 +30,10 @@ exports.register = function (user, next) {
  * @param {String}   password
  * @param {Function} next
  */
-exports.createUser = function (_user, next) {
+exports.createUser = function (_user, next) {exports.createUser = function (_user, next) {
+  var password = _user.password;
+  delete _user.password;
+
   return sails.models.user.create(_user, function (err, user) {
     if (err) {
       if (err.code === 'E_VALIDATION') {
@@ -47,7 +50,7 @@ exports.createUser = function (_user, next) {
 
     Passport.create({
       protocol : 'local'
-    , password : _user.password
+    , password : password
     , user     : user.id
     }, function (err, passport) {
       if (err) {
