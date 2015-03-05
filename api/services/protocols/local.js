@@ -30,7 +30,7 @@ exports.register = function (user, next) {
  * @param {String}   password
  * @param {Function} next
  */
-exports.createUser = function (_user, next) {exports.createUser = function (_user, next) {
+exports.createUser = function (_user, next) {
   var password = _user.password;
   delete _user.password;
 
