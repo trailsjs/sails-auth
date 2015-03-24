@@ -83,8 +83,8 @@ module.exports = {
         res.redirect('back');
       }
       else {
-          // make sure the server always returns a response to the client i.e passport-local bad username/email or password
-          res.serverError();
+        // make sure the server always returns a response to the client i.e passport-local bad username/email or password
+        res.serverError();
       }
 
     }
