@@ -9,18 +9,18 @@ before(function(done) {
 
     sails = server;
 
-    if (err) return done(err);
+    if (err)
+      return done(err);
 
     request(sails.hooks.http.app)
       .post('/register')
       .send({
-          email: 'existing.user@email.com',
-          password: 'admin1234'
+        email: 'existing.user@email.com',
+        password: 'admin1234'
       })
       .end(function(err) {
         done(err, sails);
       });
-
 
   });
 

@@ -9,7 +9,6 @@ describe('Passport Model', function () {
       Passport.beforeCreate({ password: 'password' }, function (err, passport) {
 
         assert.notEqual(passport.password, 'password');
-
         done(err);
 
       });

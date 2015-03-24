@@ -42,11 +42,9 @@ exports.createUser = function (_user, next) {
         sails.log(err);
 
         if (err.invalidAttributes.email) {
-
           return next(new Error('Error.Passport.Email.Exists'));
         }
         else {
-
           return next(new Error('Error.Passport.User.Exists'));
         }
 
