@@ -12,6 +12,18 @@
 
 module.exports = {
 
-    models: { migrate: 'drop' }
+    log: { level: 'silent' },
+
+    models: { migrate: 'drop' },
+
+    policies: {
+
+        '*': ['basicAuth', 'passport', 'sessionAuth'],
+
+        AuthController: { '*': [ 'passport' ] },
+
+        UserController: { create: true }
+
+    }
 
 };

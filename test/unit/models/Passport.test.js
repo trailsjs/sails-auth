@@ -10,7 +10,7 @@ describe('Passport Model', function () {
 
         assert.notEqual(passport.password, 'password');
 
-        done();
+        done(err);
 
       });
 
