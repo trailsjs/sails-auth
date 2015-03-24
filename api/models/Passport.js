@@ -17,7 +17,7 @@ function hashPassword (passport, next) {
       passport.password = hash;
       var t1 = new Date().valueOf();
       sails.log.silly('hashed password for user in', (t1 - t0), 'ms');
-      next(err);
+      next(null, passport);
     });
   }
   else {

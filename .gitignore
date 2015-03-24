@@ -28,3 +28,7 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+#IntelliJ Files
+sails-auth.iml
+.idea
