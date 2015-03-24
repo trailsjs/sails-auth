@@ -1,21 +1,5 @@
-var assert = require('assert'),
-    request = require('supertest');
-
-before(function(done) {
-
-    request(sails.hooks.http.app)
-        .post('/register')
-        .send({
-            email: 'new.user2@email.com',
-            password: 'admin1234'
-        })
-        .expect(200)
-        .end(function(err) {
-            done(err);
-        });
-
-});
-
+var assert = require('assert');
+var request = require('supertest');
 
 describe('Auth Controller', function () {
 
@@ -26,7 +10,7 @@ describe('Auth Controller', function () {
             request(sails.hooks.http.app)
                 .post('/auth/local')
                 .send({
-                    identifier: 'new.user2@email.com',
+                    identifier: 'existing.user@email.com',
                     password: 'admin1234'
                 })
                 .expect(200)
@@ -41,7 +25,7 @@ describe('Auth Controller', function () {
             request(sails.hooks.http.app)
                 .post('/auth/local')
                 .send({
-                    identifier: 'new.user3@email.com',
+                    identifier: 'invalid@email.com',
                     password: 'admin1234'
                 })
                 .expect(500)
@@ -56,8 +40,8 @@ describe('Auth Controller', function () {
             request(sails.hooks.http.app)
                 .post('/auth/local')
                 .send({
-                    identifier: 'new.user2@email.com',
-                    password: 'admin1235'
+                    identifier: 'existing.user@email.com',
+                    password: 'invalid1235'
                 })
                 .expect(500)
                 .end(function(err) {

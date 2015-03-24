@@ -102,6 +102,8 @@ module.exports = {
         }
         // Upon successful login, send the user to the homepage where req.user
         // will available.
+        req.session.authenticated = true;
+
         sails.log.info('user', user, 'authenticated successfully');
         return res.json(user);
       });

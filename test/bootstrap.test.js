@@ -1,4 +1,5 @@
 var Sails = require('sails');
+var request = require('supertest');
 var ConfigOverrides = require('../config/env/testing');
 var sails;
 
@@ -10,7 +11,16 @@ before(function(done) {
 
     if (err) return done(err);
 
-    done(err, sails);
+    request(sails.hooks.http.app)
+      .post('/register')
+      .send({
+          email: 'existing.user@email.com',
+          password: 'admin1234'
+      })
+      .end(function(err) {
+        done(err, sails);
+      });
+
 
   });
 
