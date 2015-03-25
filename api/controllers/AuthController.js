@@ -82,6 +82,11 @@ module.exports = {
       else if (action === 'disconnect') {
         res.redirect('back');
       }
+      else {
+        // make sure the server always returns a response to the client i.e passport-local bad username/email or password
+        res.serverError();
+      }
+
     }
 
     passport.callback(req, res, function (err, user) {
@@ -97,6 +102,8 @@ module.exports = {
         }
         // Upon successful login, send the user to the homepage where req.user
         // will available.
+        req.session.authenticated = true;
+
         sails.log.info('user', user, 'authenticated successfully');
         return res.json(user);
       });

@@ -36,13 +36,18 @@ exports.createUser = function (_user, next) {
 
   return sails.models.user.create(_user, function (err, user) {
     if (err) {
+
       if (err.code === 'E_VALIDATION') {
+
         sails.log(err);
+
         if (err.invalidAttributes.email) {
-          throw new Error('Error.Passport.Email.Exists');
-        } else {
-          throw new Error('Error.Passport.User.Exists');
+          return next(new Error('Error.Passport.Email.Exists'));
         }
+        else {
+          return next(new Error('Error.Passport.User.Exists'));
+        }
+
       }
       
       return next(err);
