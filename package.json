@@ -52,7 +52,9 @@
   "devDependencies": {
     "mocha": "^1.21.4",
     "sails-disk": "^0.10.7",
-    "supertest": "^0.15.0"
+    "supertest": "^0.15.0",
+    "lodash": ">2.4.0",
+    "sails": ">0.10.0"
   },
   "peerDependencies": {
     "lodash": ">2.4.0",
