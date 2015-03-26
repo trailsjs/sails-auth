@@ -83,23 +83,26 @@ module.exports = {
         res.redirect('back');
       }
       else {
-        // make sure the server always returns a response to the client i.e passport-local bad username/email or password
-        res.serverError();
+        // make sure the server always returns a response to the client
+        // i.e passport-local bad username/email or password
+        res.badRequest('Bad Request');
       }
 
     }
 
     passport.callback(req, res, function (err, user) {
-      if (err) {
+
+      if (err || !user) {
         sails.log.warn(err);
-        return tryAgain();
+        return tryAgain(err);
       }
 
       req.login(user, function (err) {
         if (err) {
           sails.log.warn(err);
-          return tryAgain();
+          return tryAgain(err);
         }
+
         // Upon successful login, send the user to the homepage where req.user
         // will available.
         req.session.authenticated = true;
