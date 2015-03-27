@@ -85,7 +85,7 @@ module.exports = {
       else {
         // make sure the server always returns a response to the client
         // i.e passport-local bad username/email or password
-        res.badRequest('Bad Request');
+        res.forbidden();
       }
 
     }
