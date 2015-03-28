@@ -64,7 +64,6 @@ passport.protocols = require('./protocols');
  * @param {Function} next
  */
 passport.connect = function (req, query, profile, next) {
-  var strategies = sails.config.passport;
   var user = { };
 
   // Get the authentication provider from the query.
@@ -96,6 +95,9 @@ passport.connect = function (req, query, profile, next) {
   if (!user.username && !user.email) {
     return next(new Error('Neither a username nor email was available'));
   }
+
+  var User = sails.models.user;
+  var Passport = sails.models.passport;
 
   Passport.findOne({
     provider: provider
@@ -337,6 +339,7 @@ passport.loadStrategies = function () {
 passport.disconnect = function (req, res, next) {
   var user = req.user;
   var provider = req.param('provider');
+  var Passport = sails.models.passport;
 
   Passport.findOne({
       provider   : provider,

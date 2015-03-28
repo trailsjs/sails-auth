@@ -24,6 +24,8 @@ var passport = require('passport');
  * @param {Function} next
  */
 module.exports = function (req, res, next) {
+  var passport = sails.services.passport;
+
   // Initialize Passport
   passport.initialize()(req, res, function () {
     // Use the built-in sessions

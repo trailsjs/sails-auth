@@ -29,5 +29,5 @@ module.exports = function (req, accessToken, refreshToken, profile, next) {
     query.tokens.refreshToken = refreshToken;
   }
 
-  passport.connect(req, query, profile, next);
+  sails.services.passport.connect(req, query, profile, next);
 };
