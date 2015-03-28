@@ -28,7 +28,7 @@ describe('Auth Controller', function () {
           identifier: 'invalid@email.com',
           password: 'admin1234'
         })
-        .expect(500)
+        .expect(403)
         .end(function(err) {
           done(err);
       });
@@ -43,7 +43,7 @@ describe('Auth Controller', function () {
           identifier: 'existing.user@email.com',
           password: 'invalid1235'
         })
-        .expect(500)
+        .expect(403)
         .end(function(err) {
           done(err);
       });
