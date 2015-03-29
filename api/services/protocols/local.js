@@ -53,7 +53,7 @@ exports.createUser = function (_user, next) {
       return next(err);
     }
 
-    Passport.create({
+    sails.models.passport.create({
       protocol : 'local'
     , password : password
     , user     : user.id
@@ -86,7 +86,8 @@ exports.createUser = function (_user, next) {
  */
 exports.connect = function (req, res, next) {
   var user     = req.user
-    , password = req.param('password');
+    , password = req.param('password')
+    , Passport = sails.models.passport;
 
   Passport.findOne({
     protocol : 'local'
@@ -149,7 +150,7 @@ exports.login = function (req, identifier, password, next) {
       return next(null, false);
     }
 
-    Passport.findOne({
+    sails.models.passport.findOne({
       protocol : 'local'
     , user     : user.id
     }, function (err, passport) {

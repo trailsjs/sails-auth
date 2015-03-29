@@ -6,7 +6,7 @@ describe('Passport Model', function () {
 
     it ('should hash the password', function (done) {
 
-      Passport.beforeCreate({ password: 'password' }, function (err, passport) {
+      sails.models.passport.beforeCreate({ password: 'password' }, function (err, passport) {
 
         assert.notEqual(passport.password, 'password');
         done(err);

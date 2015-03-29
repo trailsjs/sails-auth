@@ -29,7 +29,7 @@ module.exports = {
    * @param {Object} res
    */
   provider: function (req, res) {
-    passport.endpoint(req, res);
+    sails.services.passport.endpoint(req, res);
   },
 
   /**
@@ -90,7 +90,7 @@ module.exports = {
 
     }
 
-    passport.callback(req, res, function (err, user) {
+      sails.services.passport.callback(req, res, function (err, user) {
 
       if (err || !user) {
         sails.log.warn(err);
@@ -120,6 +120,6 @@ module.exports = {
    * @param {Object} res
    */
   disconnect: function (req, res) {
-    passport.disconnect(req, res);
+    sails.services.passport.disconnect(req, res);
   }
 };
