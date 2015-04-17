@@ -60,7 +60,7 @@ exports.createUser = function (_user, next) {
     }, function (err, passport) {
       if (err) {
         if (err.code === 'E_VALIDATION') {
-          throw new Error('Error.Passport.Password.Invalid');
+          err = new Error('Error.Passport.Password.Invalid');
         }
         
         return user.destroy(function (destroyErr) {
