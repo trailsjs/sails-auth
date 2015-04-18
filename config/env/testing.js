@@ -16,6 +16,10 @@ module.exports = {
 
   models: { migrate: 'drop' },
 
+  hooks: {
+    grunt: false
+  },
+
   policies: {
 
     '*': ['basicAuth', 'passport', 'sessionAuth'],
