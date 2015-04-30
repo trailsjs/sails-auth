@@ -12,6 +12,11 @@ before(function(done) {
     if (err)
       return done(err);
 
+    var client = require('../assets/js/dependencies/sails.io.js');
+
+    global.io = new client(require('socket.io-client'));
+    io.sails.url = 'http://localhost:1337/';
+
     request(sails.hooks.http.app)
       .post('/register')
       .send({
