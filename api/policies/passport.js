@@ -23,6 +23,9 @@ var passport = require('passport');
  * @param {Object}   res
  * @param {Function} next
  */
+var http = require('http');
+var methods = ['login', 'logIn', 'logout', 'logOut', 'isAuthenticated', 'isUnauthenticated'];
+
 module.exports = function (req, res, next) {
   var passport = sails.services.passport;
 
@@ -30,6 +33,14 @@ module.exports = function (req, res, next) {
   passport.initialize()(req, res, function () {
     // Use the built-in sessions
     passport.session()(req, res, function () {
+
+      // Make the request's passport methods available for socket
+      if (req.isSocket) {
+        for (var i = 0; i < methods.length; i++) {
+          req[methods[i]] = http.IncomingMessage.prototype[methods[i]].bind(req);
+        }
+      }
+
       // Make the user available throughout the frontend
       res.locals.user = req.user;
 
