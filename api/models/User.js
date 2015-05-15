@@ -35,6 +35,13 @@ module.exports = {
     }
   },
 
+  beforeValidate: function (user, next) {
+    if (_.isEmpty(user.username)) {
+      user.username = user.email;
+    }
+    next();
+  },
+
   /**
    * Register a new User with a passport
    */
