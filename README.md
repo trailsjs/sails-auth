@@ -1,4 +1,4 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' />-auth
+# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> auth
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
@@ -41,8 +41,16 @@ $ sails generate auth-api
   }
 ```
 
+### 3. authenticate!
+
+Create users as you normally would (`POST` to `/user`). Authenticate using the
+endpoint of the provider you've chosen.
+
+#### `/user/me`
+Returns `User` for this authenticated session.
+
 #### Passport Protocols
-- [passport.google](http://passportjs.org/guide/google/)
+- [passport.google](https://github.com/jaredhanson/passport-google-oauth)
 - [passport.twitter](http://passportjs.org/guide/twitter/)
 - [passport.github](https://github.com/jaredhanson/passport-github)
 - [passport.facebook](http://passportjs.org/guide/facebook/)

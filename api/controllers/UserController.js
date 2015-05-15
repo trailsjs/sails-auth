@@ -12,6 +12,10 @@ module.exports = {
 
       res.ok(user);
     });
+  },
+
+  me: function (req, res) {
+    res.ok(req.user);
   }
 };
 

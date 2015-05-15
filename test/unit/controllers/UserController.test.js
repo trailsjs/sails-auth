@@ -1,7 +1,38 @@
 var assert = require('assert');
 var request = require('supertest');
+var _ = require('lodash');
 
 describe('User Controller', function () {
+
+  before(function (done) {
+    request(sails.hooks.http.app)
+      .post('/register')
+      .send({
+        email: 'me@mocha.test',
+        password: 'admin1234'
+      })
+      .expect(200)
+      .end(function (err) {
+        done(err);
+      });
+  });
+
+  describe('#me()', function () {
+    it('should return User for this authenticated session', function (done) {
+        var agent = request.agent(sails.hooks.http.app);
+
+        agent
+          .get('/user/me')
+          .auth('me@mocha.test', 'admin1234')
+          .expect(200)
+          .end(function (err, res) {
+            var user = res.body;
+            assert(_.isObject(user));
+            assert.equal(user.email, 'me@mocha.test');
+            done(err);
+          });
+    });
+  });
 
   describe('#create()', function () {
 
