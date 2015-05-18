@@ -23,7 +23,7 @@ module.exports = {
 
     getGravatarUrl: function () {
       var md5 = crypto.createHash('md5');
-      md5.update(this.email);
+      md5.update(this.email || '');
       return 'https://gravatar.com/avatar/'+ md5.digest('hex');
     },
 
