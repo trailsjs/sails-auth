@@ -8,9 +8,9 @@
 module.exports = {
   create: function (req, res) {
     sails.services.passport.protocols.local.register(req.body, function (err, user) {
-      if (err) return res.serverError(err);
-
-      res.ok(user);
+      if (!err) return res.ok(user);
+      if (err.message === 'Error.Passport.Password.Invalid') return res.badRequest(err);
+      return res.serverError(err);
     });
   },
 
