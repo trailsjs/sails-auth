@@ -35,7 +35,7 @@ module.exports = {
     }
   },
 
-  beforeValidate: function (user, next) {
+  beforeCreate: function (user, next) {
     if (_.isEmpty(user.username)) {
       user.username = user.email;
     }
