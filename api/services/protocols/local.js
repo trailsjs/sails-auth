@@ -1,3 +1,5 @@
+var SAError = require('../../../lib/error/SAError.js');
+
 /**
  * Local Authentication Protocol
  *
@@ -36,18 +38,10 @@ exports.createUser = function (_user, next) {
 
   return sails.models.user.create(_user, function (err, user) {
     if (err) {
+      sails.log(err);
 
       if (err.code === 'E_VALIDATION') {
-
-        sails.log(err);
-
-        if (err.invalidAttributes.email) {
-          return next(new Error('Error.Passport.Email.Exists'));
-        }
-        else {
-          return next(new Error('Error.Passport.User.Exists'));
-        }
-
+        return next(new SAError({originalError: err}));
       }
       
       return next(err);
@@ -60,7 +54,7 @@ exports.createUser = function (_user, next) {
     }, function (err, passport) {
       if (err) {
         if (err.code === 'E_VALIDATION') {
-          err = new Error('Error.Passport.Password.Invalid');
+          err = new SAError({originalError: err});
         }
         
         return user.destroy(function (destroyErr) {
