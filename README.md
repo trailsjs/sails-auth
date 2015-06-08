@@ -41,6 +41,13 @@ $ sails generate auth-api
   }
 ```
 
+> The policies above secure everything by default, including registration. In case you wish to open it, add the following:
+```js
+  UserController: {
+    'create': true
+  }
+```
+
 ### 3. authenticate!
 
 Create users as you normally would (`POST` to `/user`). Authenticate using the
