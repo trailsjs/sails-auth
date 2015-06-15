@@ -61,7 +61,7 @@ describe('User Controller', function () {
               email: 'new.user@email.com',
               password: 'admin1234'
             })
-            .expect(500)
+            .expect(400)
             .end(function (err) {
               done(err);
             });
@@ -87,7 +87,7 @@ describe('User Controller', function () {
 
         io.socket.post('/register', { email: 'new.socketuser@email.com', password: 'admin1234' }, function (data, jwres) {
 
-          assert.equal(jwres.statusCode, 500);
+          assert.equal(jwres.statusCode, 400);
           done();
 
         });

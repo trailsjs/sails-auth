@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-  create: function (req, res) {
+  create: function (req, res, next) {
     sails.services.passport.protocols.local.register(req.body, function (err, user) {
-      if (!err) return res.ok(user);
-      if (err.message === 'Error.Passport.Password.Invalid') return res.badRequest(err);
-      return res.serverError(err);
+      if (err) return next(err);
+
+      res.ok(user);
     });
   },
 
