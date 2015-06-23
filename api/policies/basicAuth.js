@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
   if (!auth || auth.search('Basic ') !== 0) {
     return next();
   }
-  if (process.env.NODE_ENV !== 'development' && !req.secure) {
+  if (process.env.NODE_ENV === 'production' && !req.secure) {
     return res.status(403).json({ error: 'https required for basic auth. refusing login request' });
   }
 
