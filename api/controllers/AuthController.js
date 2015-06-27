@@ -18,23 +18,16 @@ module.exports = {
    * @param {Object} res
    */
   logout: function (req, res) {
-
+    req.logout();
     if (!req.isSocket) {
-
-      req.logout();
-      res.redirect('/');
-
+      res.redirect(req.query.next || '/');
     }
     else {
-
       delete req.user;
       delete req.session.passport;
       req.session.authenticated = false;
-
       res.ok();
-
     }
-
   },
 
   /**
