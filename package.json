@@ -33,6 +33,7 @@
   "homepage": "https://github.com/tjwebb/sails-auth",
   "dependencies": {
     "bcryptjs": "^2.1",
+    "bluebird": "^2.9.32",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2",
     "passport-local": "^1.0.0",
