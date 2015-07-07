@@ -66,6 +66,9 @@ Returns `User` for this authenticated session.
 ## License
 MIT
 
+## Maintained By
+[<img src='http://i.imgur.com/zM0ynQk.jpg' height='36px'>](http://balderdash.co)
+
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-auth.svg?style=flat-square
