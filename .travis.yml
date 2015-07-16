@@ -1,19 +1,15 @@
 language: node_js
 node_js:
-  - '0.10'
-  - '0.12'
-
+- '0.10'
+- '0.12'
 sudo: false
-
 notifications:
   email: false
-
 deploy:
   provider: npm
   email: me@traviswebb.com
   api_key:
-    secure: R+k+MLvkT++OwuGY3ruDBTuzfSVpG8BXv1jIyBXpp4qgfQ4lEfmtuj9A8/vT/Q1EKNeK+F7LULPHR9a2vjSHxotC9FyBNGPMU92QVAhhznRjhkS7kKSRX2RgCwG96w1sRmrYlw0AXN0f72UPuIaLAwRfCbvVc5/PzvxHtWIGFaY=
+    secure: QvHzpxAh8ysanGSt/ddZUqwtge7WlIS2R+qW667uW2fQ+XCtOwB3M0PzTab+tJ3lnRTUrHhThpKHXnOfGAkyUUoxfYg5rBRSeOv7xakpAqP6npCLR49OcjvcNqTowxuTgsj770Kgfx+uLS68sUaTcBxeZdZqdymcRj6QZ3RhFU0=
   on:
     tags: true
     repo: tjwebb/sails-auth
-    all_branches: true
