@@ -21,7 +21,7 @@ $ npm install sails-auth --save
 {
   "generators": {
     "modules": {
-      "auth-api": "sails-auth"
+      "auth-api": "sails-auth/generator"
     }
   }
 }

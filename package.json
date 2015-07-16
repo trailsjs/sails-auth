@@ -2,7 +2,7 @@
   "name": "sails-auth",
   "version": "1.2.7",
   "description": "Passport-based User Authentication system for sails.js applications.",
-  "main": "index.js",
+  "main": "api/hooks/sails-auth.js",
   "scripts": {
     "test": "mocha --reporter spec"
   },
@@ -34,6 +34,7 @@
   "dependencies": {
     "bcryptjs": "^2.1",
     "bluebird": "^2.9.32",
+    "lodash": ">2.4.0",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2",
     "passport-local": "^1.0.0",
@@ -46,23 +47,25 @@
   },
   "bundledDependencies": [
     "bcryptjs",
+    "bluebird",
+    "lodash",
     "passport",
     "passport-http",
-    "passport-local"
+    "passport-local",
+    "sails-generate-entities"
   ],
   "devDependencies": {
-    "lodash": ">2.4.0",
     "mocha": "^1.21.4",
     "sails": ">0.10.0",
     "sails-disk": "^0.10.7",
     "socket.io-client": "^1.3.5",
     "supertest": "^0.15.0"
   },
-  "peerDependencies": {
-    "lodash": ">2.4.0"
-  },
   "engines": {
     "node": ">= 0.10",
     "npm": ">= 2.3"
+  },
+  "sails": {
+    "isHook": true
   }
 }
