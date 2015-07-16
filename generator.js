@@ -20,7 +20,6 @@ module.exports = require('sails-generate-entities')({
   functions: [
     'api/policies/passport.js',
     'api/policies/basicAuth.js',
-    'api/policies/sessionAuth.js',
     'api/services/protocols/basic.js'
   ]
 });
