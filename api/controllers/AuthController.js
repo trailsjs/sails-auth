@@ -19,13 +19,14 @@ module.exports = {
    */
   logout: function (req, res) {
     req.logout();
+    delete req.user;
+    delete req.session.passport;
+    req.session.authenticated = false;
+    
     if (!req.isSocket) {
       res.redirect(req.query.next || '/');
     }
     else {
-      delete req.user;
-      delete req.session.passport;
-      req.session.authenticated = false;
       res.ok();
     }
   },
