@@ -62,6 +62,28 @@ module.exports.passport = {
     }
   }
 
+  youtube: {
+    name: 'Youtube',
+    protocol: 'oauth2',
+    strategy: require('passport-youtube').Strategy,
+    options: {
+      clientID: 'your-client-id',
+      clientSecret: 'your-client-secret'
+    },
+  },
+
+  'youtube-v3': {
+    name: 'Youtube',
+    protocol: 'oauth2',
+    strategy: require('passport-youtube-v3').Strategy,
+    options: {
+      clientID: 'your-client-id',
+      clientSecret: 'your-client-secret'
+      // Scope: see https://developers.google.com/youtube/v3/guides/authentication
+      scope: [ 'https://www.googleapis.com/auth/youtube.readonly' ],
+    },
+  },
+
   */
 
 };
