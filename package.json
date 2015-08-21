@@ -43,7 +43,7 @@
     "marlinspike": "^0.12",
     "passport": "^0.3",
     "passport-http": "^0.3",
-    "passport-local": "^1.0.0",
+    "passport-local": "^1.0.0"
   },
   "bundledDependencies": [
     "bcryptjs",
@@ -51,7 +51,7 @@
     "lodash",
     "passport",
     "passport-http",
-    "passport-local",
+    "passport-local"
   ],
   "devDependencies": {
     "mocha": "^1.21.4",
