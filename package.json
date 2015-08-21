@@ -24,7 +24,10 @@
     "generator",
     "google",
     "facebook",
-    "twitter"
+    "twitter",
+    "linkedin",
+    "instagram",
+    "youtube"
   ],
   "author": "Travis Webb <me@traviswebb.com>",
   "license": "MIT",
@@ -34,21 +37,13 @@
   "homepage": "https://github.com/tjwebb/sails-auth",
   "dependencies": {
     "babel": "^5.8.21",
-    "bcryptjs": "^2.1",
+    "bcryptjs": "^2.2",
     "bluebird": "^2.9.32",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
-    "lodash": ">2.4.0",
-    "marlinspike": "^0.12.5",
-    "passport": "^0.2.1",
+    "lodash": "^3.10",
+    "marlinspike": "^0.12",
+    "passport": "^0.3",
     "passport-http": "^0.3",
     "passport-local": "^1.0.0",
-    "sails-generate-entities": "latest"
-  },
-  "optionalDependencies": {
-    "passport-facebook": "^1.0.3",
-    "passport-google-oauth": "^0.2.0",
-    "passport-twitter": "^1.0.2"
   },
   "bundledDependencies": [
     "bcryptjs",
@@ -57,18 +52,19 @@
     "passport",
     "passport-http",
     "passport-local",
-    "sails-generate-entities"
   ],
   "devDependencies": {
     "mocha": "^1.21.4",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
     "sails": ">0.10.0",
     "sails-disk": "^0.10.7",
     "socket.io-client": "^1.3.5",
     "supertest": "^0.15.0"
   },
   "engines": {
-    "node": ">= 0.10",
-    "npm": ">= 2.3"
+    "node": ">= 0.12",
+    "npm": ">= 2.11"
   },
   "sails": {
     "isHook": true,
