@@ -293,7 +293,7 @@ passport.loadStrategies = function () {
       if (strategies.local) {
         Strategy = strategies[key].strategy;
 
-        self.use(new Strategy(options, self.protocols.local.login));
+        passport.use(new Strategy(options, self.protocols.local.login));
       }
     } else {
       var protocol = strategies[key].protocol;
@@ -325,7 +325,7 @@ passport.loadStrategies = function () {
       // do that.
       _.extend(options, strategies[key].options);
 
-      self.use(new Strategy(options, self.protocols[protocol]));
+      passport.use(new Strategy(options, self.protocols[protocol]));
     }
   });
 };

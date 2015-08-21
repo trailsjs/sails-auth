@@ -6,7 +6,7 @@ gulp.task("default", function () {
     .pipe(babel())
     .pipe(gulp.dest("dist/api"));
 
-  gulp.src("config/**")
+  gulp.src("lib/**")
     .pipe(babel())
-    .pipe(gulp.dest("dist/config"));
+    .pipe(gulp.dest("dist/lib"));
 });
