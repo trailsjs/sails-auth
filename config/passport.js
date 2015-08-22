@@ -20,6 +20,7 @@ module.exports.passport = {
     protocol: 'basic'
   },
 
+  /*
   google: {
     name: 'Google',
     protocol: 'oauth2',
@@ -31,7 +32,6 @@ module.exports.passport = {
     }
   }
 
-  /*
   twitter: {
     name: 'Twitter',
     protocol: 'oauth',
