@@ -280,7 +280,7 @@ passport.loadStrategies = function () {
   var self = this;
   var strategies = sails.config.passport;
 
-  Object.keys(strategies).forEach(function (key) {
+  _.each(strategies, function (strategy, key) {
     var options = { passReqToCallback: true };
     var Strategy;
 

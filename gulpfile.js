@@ -9,4 +9,8 @@ gulp.task("default", function () {
   gulp.src("lib/**")
     .pipe(babel())
     .pipe(gulp.dest("dist/lib"));
+
+  gulp.src("config/**")
+    .pipe(babel())
+    .pipe(gulp.dest("dist/config"));
 });
