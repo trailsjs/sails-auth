@@ -57,7 +57,7 @@
     "mocha": "^1.21.4",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
-    "sails": ">0.10.0",
+    "sails": "balderdashy/sails",
     "sails-disk": "^0.10.7",
     "socket.io-client": "^1.3.5",
     "supertest": "^0.15.0"
