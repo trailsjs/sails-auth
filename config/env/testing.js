@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  log: { level: 'silent' },
+  log: { level: 'debug' },
   models: { migrate: 'drop' },
   hooks: {
     grunt: false

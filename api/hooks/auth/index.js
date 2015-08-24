@@ -7,9 +7,8 @@ class Auth extends Marlinspike {
     super(sails, module)
   }
 
-  initialize (next) {
+  configure () {
     sails.services.passport.loadStrategies()
-    next()
   }
 }
 
