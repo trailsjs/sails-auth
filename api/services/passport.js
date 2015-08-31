@@ -79,9 +79,11 @@ passport.connect = function (req, query, profile, next) {
     return next(new Error('No authentication provider was identified.'));
   }
 
+  sails.log.debug('auth profile', profile);
+
   // If the profile object contains a list of emails, grab the first one and
   // add it to the user.
-  if (profile.hasOwnProperty('emails')) {
+  if (profile.emails && profile.emails[0]) {
     user.email = profile.emails[0].value;
   }
   // If the profile object contains a username, add it to the user.
