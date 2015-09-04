@@ -4,33 +4,19 @@
 [![Build status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
-Passport-based User Authentication system for sails.js applications.
+[Passport](http://passportjs.org/)-based User Authentication system for [Sails.js](http://sailsjs.org) applications.
 
 **Note:** For comprehensive user account control with role-based permissioning, object ownership, and row-level security, see [**sails-permissions**](https://github.com/tjwebb/sails-permissions), which uses this project as a dependency.
 
-## Install
+## 1. Install
 ```sh
 $ npm install sails-auth --save
 ```
+This will install `sails-auth` has a Sails.js Hook. The Hook uses
+[marlinspike](https://github.com/tjwebb/marlinspike) to extend the relevant
+Models, Controllers, etc.
 
-## Usage
-
-### 1. configure .sailsrc
-
-```json
-{
-  "generators": {
-    "modules": {
-      "auth-api": "sails-auth/generator"
-    }
-  }
-}
-```
-
-### 2. install sails.js extension
-```sh
-$ sails generate auth-api
-```
+## 2. Setup Policies
 
 #### config/policies.js
 ```js
@@ -41,14 +27,15 @@ $ sails generate auth-api
   }
 ```
 
-> The policies above secure everything by default, including registration. In case you wish to open it, add the following:
+> The policies above secure everything by default, including registration. If
+> you'd like to open registration to all users, add the following:
 ```js
   UserController: {
     'create': true
   }
 ```
 
-### 3. authenticate!
+## 3. Authenticate!
 
 Create users as you normally would (`POST` to `/user`). Authenticate using the
 endpoint of the provider you've chosen.
@@ -68,6 +55,9 @@ MIT
 
 ## Maintained By
 [<img src='http://i.imgur.com/zM0ynQk.jpg' height='36px'>](http://balderdash.co)
+- [Travis Webb](https://github.com/tjwebb)
+- [Ryan Quinn](https://github.com/ryanwilliamquinn)
+- [Contributors](https://github.com/tjwebb/sails-auth/graphs/contributors)
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org

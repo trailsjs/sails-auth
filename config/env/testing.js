@@ -11,23 +11,15 @@
  */
 
 module.exports = {
-
-  log: { level: 'silent' },
-
+  log: { level: 'debug' },
   models: { migrate: 'drop' },
-
   hooks: {
     grunt: false
   },
-
   policies: {
-
     '*': ['basicAuth', 'passport', 'sessionAuth'],
-
     AuthController: { '*': [ 'passport' ] },
-
     UserController: { create: true }
-
-  }
-
+  },
+  port: 1448,
 };
