@@ -1,6 +1,6 @@
 module.exports.routes = {
   'post /register': 'UserController.create',
-  'get /logout': 'AuthController.logout',
+  'post /logout': 'AuthController.logout',
 
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
