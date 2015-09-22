@@ -58,9 +58,9 @@ module.exports = {
    * @param {Object} res
    */
   callback: function (req, res) {
-    function negotiateError (err) {
-      var action = req.param('action');
+    var action = req.param('action');
 
+    function negotiateError (err) {
       if (action === 'register') {
         res.redirect('/register');
       }
@@ -78,7 +78,6 @@ module.exports = {
     }
 
     sails.services.passport.callback(req, res, function (err, user) {
-
       if (err || !user) {
         sails.log.warn(err);
         return negotiateError(err);
