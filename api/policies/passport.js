@@ -36,12 +36,12 @@ module.exports = function (req, res, next) {
 
       // Make the request's passport methods available for socket
       if (req.isSocket) {
-        for (var i = 0; i < methods.length; i++) {
-          req[methods[i]] = http.IncomingMessage.prototype[methods[i]].bind(req);
-        }
+        _.each(methods, function (method) {
+          req[method] = http.IncomingMessage.prototype[method].bind(req);
+        });
       }
 
-      // Make the user available throughout the frontend
+      // Make the user available throughout the frontend (for views)
       res.locals.user = req.user;
 
       next();
