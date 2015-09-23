@@ -60,6 +60,9 @@ module.exports = {
   callback: function (req, res) {
     var action = req.param('action');
 
+    sails.log.debug('req.body', req.body);
+    sails.log.debug('req.query', req.query);
+
     function negotiateError (err) {
       if (action === 'register') {
         res.redirect('/register');
@@ -79,7 +82,7 @@ module.exports = {
 
     sails.services.passport.callback(req, res, function (err, user) {
       if (err || !user) {
-        sails.log.warn(err);
+        sails.log.warn(user, err);
         return negotiateError(err);
       }
 
@@ -90,6 +93,9 @@ module.exports = {
         }
 
         req.session.authenticated = true;
+
+        sails.log.debug('logged in', user);
+        sails.log.debug('redirecting? next=', req.query.next);
 
         // Upon successful login, optionally redirect the user if there is a
         // `next` query param

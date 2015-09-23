@@ -231,6 +231,7 @@ passport.callback = function (req, res, next) {
       // the authentication process by attempting to obtain an access token. If
       // access was granted, the user will be logged in. Otherwise, authentication
       // has failed.
+      sails.log.debug('authenticating. provider=', provider);
       this.authenticate(provider, next)(req, res, req.next);
     }
   }
