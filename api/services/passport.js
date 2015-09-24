@@ -66,6 +66,8 @@ passport.protocols = require('./protocols');
 passport.connect = function (req, query, profile, next) {
   var user = { };
 
+  req.session.tokens = query.tokens;
+
   // Get the authentication provider from the query.
   query.provider = req.param('provider');
 
@@ -109,12 +111,13 @@ passport.connect = function (req, query, profile, next) {
         // Action:   Create a new user and assign them a passport.
         if (!passport) {
           return sails.models.user.create(user)
-            .then(function (user) {
+            .then(function (_user) {
+              user = _user;
               return sails.models.passport.create(_.extend({ user: user.id }, query))
             })
             .then(function (passport) {
               console.log('created passport after user', passport);
-              req.session.passport = passport;
+              //req.session.passport = passport;
               console.log('next user', user);
               next(null, user);
             })
@@ -134,7 +137,7 @@ passport.connect = function (req, query, profile, next) {
           return passport.save()
             .then(function (passport) {
               console.log('saved passport', passport);
-              req.session.passport = passport;
+              //req.session.passport = passport;
 
               // Fetch the user associated with the Passport
               return sails.models.user.findOne(passport.user.id);
@@ -153,7 +156,7 @@ passport.connect = function (req, query, profile, next) {
           return sails.models.passport.create(_.extend({ user: req.user.id }, query))
             .then(function (passport) {
               console.log('created passport', passport);
-              req.session.passport = passport;
+              //req.session.passport = passport;
               next(null, req.user);
             })
             .catch(next);

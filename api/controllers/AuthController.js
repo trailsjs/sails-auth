@@ -89,14 +89,15 @@ module.exports = {
           return negotiateError(err);
         }
 
-        sails.log.debug('req.session', req.session);
-
         req.session.authenticated = true;
 
         // Upon successful login, optionally redirect the user if there is a
         // `next` query param
         if (req.query.next) {
+          console.log('req.query', req.query);
+          console.log('req.session', req.session);
           var url = sails.services.authservice.buildCallbackNextUrl(req);
+          console.log('redirecting to', url);
           res.status(302).set('Location', url);
         }
 

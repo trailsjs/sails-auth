@@ -31,7 +31,8 @@ module.exports = function (req, res, next) {
 
     req.user = user;
     req.session.authenticated = true;
-    req.session.passport = passport;
+    console.log('BASIC AUTH SETTING PASSPORT ON SESSION');
+    //req.session.passport = passport;
 
     next();
   });

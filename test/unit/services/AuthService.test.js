@@ -23,10 +23,8 @@ describe('AuthService', function () {
     it('should omit access_token in the next url if includeToken is false/missing', function () {
       var omitTokenReq = _.merge({
         session: {
-          passport: {
-            tokens: {
-              accessToken: '12345'
-            }
+          tokens: {
+            accessToken: '12345'
           }
         }
       }, req);
@@ -41,10 +39,8 @@ describe('AuthService', function () {
           includeToken: true
         },
         session: {
-          passport: {
-            tokens: {
-              accessToken: '12345'
-            }
+          tokens: {
+            accessToken: '12345'
           }
         }
       }, req);
