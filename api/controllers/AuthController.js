@@ -60,9 +60,6 @@ module.exports = {
   callback: function (req, res) {
     var action = req.param('action');
 
-    sails.log.debug('req.body', req.body);
-    sails.log.debug('req.query', req.query);
-
     function negotiateError (err) {
       if (action === 'register') {
         res.redirect('/register');
@@ -92,15 +89,15 @@ module.exports = {
           return negotiateError(err);
         }
 
-        req.session.authenticated = true;
+        sails.log.debug('req.session', req.session);
 
-        sails.log.debug('logged in', user);
-        sails.log.debug('redirecting? next=', req.query.next);
+        req.session.authenticated = true;
 
         // Upon successful login, optionally redirect the user if there is a
         // `next` query param
         if (req.query.next) {
-          res.status(302).set('Location', req.query.next);
+          var url = sails.services.authservice.buildCallbackNextUrl(req);
+          res.status(302).set('Location', url);
         }
 
         sails.log.info('user', user, 'authenticated successfully');

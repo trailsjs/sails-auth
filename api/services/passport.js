@@ -113,6 +113,9 @@ passport.connect = function (req, query, profile, next) {
               return sails.models.passport.create(_.extend({ user: user.id }, query))
             })
             .then(function (passport) {
+              console.log('created passport after user', passport);
+              req.session.passport = passport;
+              console.log('next user', user);
               next(null, user);
             })
             .catch(next);
@@ -123,13 +126,15 @@ passport.connect = function (req, query, profile, next) {
         // Action:   Get the user associated with the passport.
         else {
           // If the tokens have changed since the last session, update them
-          if (_.has(query, 'tokens') && query.tokens !== passport.tokens) {
+          if (_.has(query, 'tokens') && query.tokens != passport.tokens) {
             passport.tokens = query.tokens;
           }
 
           // Save any updates to the Passport before moving on
           return passport.save()
             .then(function (passport) {
+              console.log('saved passport', passport);
+              req.session.passport = passport;
 
               // Fetch the user associated with the Passport
               return sails.models.user.findOne(passport.user.id);
@@ -147,6 +152,8 @@ passport.connect = function (req, query, profile, next) {
         if (!passport) {
           return sails.models.passport.create(_.extend({ user: req.user.id }, query))
             .then(function (passport) {
+              console.log('created passport', passport);
+              req.session.passport = passport;
               next(null, req.user);
             })
             .catch(next);
@@ -231,7 +238,6 @@ passport.callback = function (req, res, next) {
       // the authentication process by attempting to obtain an access token. If
       // access was granted, the user will be logged in. Otherwise, authentication
       // has failed.
-      sails.log.debug('authenticating. provider=', provider);
       this.authenticate(provider, next)(req, res, req.next);
     }
   }
