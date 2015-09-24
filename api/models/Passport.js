@@ -7,16 +7,16 @@ var bcrypt = require('bcryptjs');
  * @param {Function} next
  */
 function hashPassword (passport, next) {
+  var config = sails.config.auth.bcrypt;
+  var salt = config.salt || config.rounds;
   if (passport.password) {
-    var t0 = new Date().valueOf();
-    bcrypt.hash(passport.password, 8, function (err, hash) {
+    bcrypt.hash(passport.password, salt, function (err, hash) {
       if (err) {
+        delete passport.password;
         sails.log.error(err);
         throw err;
       }
       passport.password = hash;
-      var t1 = new Date().valueOf();
-      sails.log.silly('hashed password for user in', (t1 - t0), 'ms');
       next(null, passport);
     });
   }
