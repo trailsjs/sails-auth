@@ -116,9 +116,6 @@ passport.connect = function (req, query, profile, next) {
               return sails.models.passport.create(_.extend({ user: user.id }, query))
             })
             .then(function (passport) {
-              console.log('created passport after user', passport);
-              //req.session.passport = passport;
-              console.log('next user', user);
               next(null, user);
             })
             .catch(next);
@@ -136,8 +133,6 @@ passport.connect = function (req, query, profile, next) {
           // Save any updates to the Passport before moving on
           return passport.save()
             .then(function (passport) {
-              console.log('saved passport', passport);
-              //req.session.passport = passport;
 
               // Fetch the user associated with the Passport
               return sails.models.user.findOne(passport.user.id);
@@ -155,8 +150,6 @@ passport.connect = function (req, query, profile, next) {
         if (!passport) {
           return sails.models.passport.create(_.extend({ user: req.user.id }, query))
             .then(function (passport) {
-              console.log('created passport', passport);
-              //req.session.passport = passport;
               next(null, req.user);
             })
             .catch(next);
