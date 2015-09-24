@@ -6,6 +6,9 @@
  */
 
 module.exports = {
+  /**
+   * @override
+   */
   create: function (req, res, next) {
     sails.services.passport.protocols.local.register(req.body, function (err, user) {
       if (err) return res.negotiate(err);

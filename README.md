@@ -12,26 +12,27 @@
 ```sh
 $ npm install sails-auth --save
 ```
-This will install `sails-auth` has a Sails.js Hook. The Hook uses
-[marlinspike](https://github.com/tjwebb/marlinspike) to extend the relevant
-Models, Controllers, etc.
+This will install `sails-auth` as a Sails Hook. The Hook uses
+[marlinspike](https://github.com/tjwebb/marlinspike) to inject the relevant
+Controllers, Policies, etc into your Sails application.
 
-## 2. Setup Policies
+## 2. Configure
 
-#### config/policies.js
+#### `config/passport.js`
+
+By default, the `local` and `basic` strategies are enabled. See
+[config/passport.js](https://github.com/tjwebb/sails-auth/blob/master/config/passport.js)
+for examples of how to add and configure additional authentication strategies.
+
+#### `config/auth.js`
+
 ```js
-  '*': [ 'basicAuth', 'passport', 'sessionAuth' ],
-
-  AuthController: {
-    '*': [ 'passport' ]
-  }
-```
-
-> The policies above secure everything by default, including registration. If
-> you'd like to open registration to all users, add the following:
-```js
-  UserController: {
-    'create': true
+  bcrypt: {
+    /**
+     * Specifiy number of salt rounds to perform on password. Values >10 are
+     * slow.
+     */
+    rounds: 8
   }
 ```
 
