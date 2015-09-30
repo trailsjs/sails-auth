@@ -10,9 +10,6 @@ module.exports = function (req, res, next) {
   if (!auth || auth.search('Basic ') !== 0) {
     return next();
   }
-  if (process.env.NODE_ENV === 'production' && !req.secure) {
-    return res.status(403).json({ error: 'https required for basic auth. refusing login request' });
-  }
 
   var authString = new Buffer(auth.split(' ')[1], 'base64').toString();
   var username = authString.split(':')[0];
