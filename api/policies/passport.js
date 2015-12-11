@@ -27,7 +27,7 @@ var http = require('http');
 var methods = ['login', 'logIn', 'logout', 'logOut', 'isAuthenticated', 'isUnauthenticated'];
 
 module.exports = function (req, res, next) {
-  var passport = sails.services.passport;
+  var passport = require('passport');
 
   // Initialize Passport
   passport.initialize()(req, res, function () {
