@@ -22,7 +22,7 @@ module.exports = {
     delete req.user;
     delete req.session.passport;
     req.session.authenticated = false;
-    
+
     if (!req.isSocket) {
       res.redirect(req.query.next || '/');
     }
@@ -73,7 +73,7 @@ module.exports = {
       else {
         // make sure the server always returns a response to the client
         // i.e passport-local bad username/email or password
-        res.forbidden(err);
+        res.send(403, err);
       }
     }
 
