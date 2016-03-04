@@ -55,7 +55,7 @@ Returns `User` for this authenticated session.
 MIT
 
 ## Maintained By
-[<img src='http://i.imgur.com/zM0ynQk.jpg' height='36px'>](http://balderdash.co)
+[<img src='http://i.imgur.com/zM0ynQk.jpg' height='36px'>](http://balderdash.io)
 - [Travis Webb](https://github.com/tjwebb)
 - [Ryan Quinn](https://github.com/ryanwilliamquinn)
 - [Contributors](https://github.com/tjwebb/sails-auth/graphs/contributors)
