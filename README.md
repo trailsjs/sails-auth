@@ -1,12 +1,10 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> auth
+# sails-auth
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
-[Passport](http://passportjs.org/)-based User Authentication system for [Sails.js](http://sailsjs.org) applications.
-
-**Note:** For comprehensive user account control with role-based permissioning, object ownership, and row-level security, see [**sails-permissions**](https://github.com/tjwebb/sails-permissions), which uses this project as a dependency.
+[Passport](http://passportjs.org/)-based User Authentication system for Sails.js applications.
 
 ## 1. Install
 ```sh
@@ -21,7 +19,7 @@ Controllers, Policies, etc into your Sails application.
 #### `config/passport.js`
 
 By default, the `local` and `basic` strategies are enabled. See
-[config/passport.js](https://github.com/tjwebb/sails-auth/blob/master/config/passport.js)
+[config/passport.js](https://github.com/langateam/sails-auth/blob/master/config/passport.js)
 for examples of how to add and configure additional authentication strategies.
 
 #### `config/auth.js`
@@ -50,21 +48,22 @@ Returns `User` for this authenticated session.
 - [passport.github](https://github.com/jaredhanson/passport-github)
 - [passport.facebook](http://passportjs.org/guide/facebook/)
 - et al
+- 
+## Permissions
+For comprehensive user account control with role-based permissioning, object ownership, and row-level security, see [**sails-permissions**](https://github.com/langateam/sails-permissions), which uses this project as a dependency.
 
 ## License
 MIT
 
 ## Maintained By
-[<img src='http://i.imgur.com/zM0ynQk.jpg' height='36px'>](http://balderdash.io)
+[<img src='http://i.imgur.com/Y03Jgmf.png' height='36px'>](http://langa.io)
 - [Travis Webb](https://github.com/tjwebb)
 - [Ryan Quinn](https://github.com/ryanwilliamquinn)
-- [Contributors](https://github.com/tjwebb/sails-auth/graphs/contributors)
+- [Contributors](https://github.com/langateam/sails-auth/graphs/contributors)
 
-[sails-logo]: http://cdn.tjw.io/images/sails-logo.png
-[sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-auth.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-auth
-[travis-image]: https://img.shields.io/travis/tjwebb/sails-auth.svg?style=flat-square
-[travis-url]: https://travis-ci.org/tjwebb/sails-auth
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-auth.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/tjwebb/sails-auth
+[travis-image]: https://img.shields.io/travis/langateam/sails-auth.svg?style=flat-square
+[travis-url]: https://travis-ci.org/langateam/sails-auth
+[daviddm-image]: http://img.shields.io/david/langateam/sails-auth.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/langateam/sails-auth
