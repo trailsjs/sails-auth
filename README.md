@@ -48,7 +48,8 @@ Returns `User` for this authenticated session.
 - [passport.github](https://github.com/jaredhanson/passport-github)
 - [passport.facebook](http://passportjs.org/guide/facebook/)
 - et al
-- 
+
+
 ## Permissions
 For comprehensive user account control with role-based permissioning, object ownership, and row-level security, see [**sails-permissions**](https://github.com/langateam/sails-permissions), which uses this project as a dependency.
 
@@ -56,7 +57,7 @@ For comprehensive user account control with role-based permissioning, object own
 MIT
 
 ## Maintained By
-[<img src='http://i.imgur.com/Y03Jgmf.png' height='36px'>](http://langa.io)
+[<img src='http://i.imgur.com/Y03Jgmf.png' height='64px'>](http://langa.io)
 - [Travis Webb](https://github.com/tjwebb)
 - [Ryan Quinn](https://github.com/ryanwilliamquinn)
 - [Contributors](https://github.com/langateam/sails-auth/graphs/contributors)
