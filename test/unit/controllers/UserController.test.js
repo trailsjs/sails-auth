@@ -136,7 +136,7 @@ describe('User Controller', function () {
         var agent = request.agent(sails.hooks.http.app);
 
         agent
-            .get('/logout')
+            .post('/logout')
             .expect(302, function (err, res) {
 
               if (err)
@@ -180,7 +180,7 @@ describe('User Controller', function () {
 
       it('should not find user if they have logged out', function (done) {
 
-        io.socket.get('/logout', function (data, jwres) {
+        io.socket.post('/logout', function (data, jwres) {
 
           assert.equal(jwres.statusCode, 200);
 
