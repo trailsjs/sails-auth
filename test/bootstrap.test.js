@@ -32,11 +32,6 @@ before(function (done) {
 });
 
 after(function (done) {
-
-  (sails || {
-    lower: function (done) {
-      return done();
-    }
-  }).lower(done);
-
+  if (!sails) done();
+  else sails.lower(done)
 });
