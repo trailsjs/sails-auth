@@ -3,9 +3,9 @@ var request = require('supertest');
 var ConfigOverrides = require('../config/env/testing');
 var sails;
 
-before(function(done) {
+before(function (done) {
 
-  Sails.lift(ConfigOverrides, function(err, server) {
+  Sails.lift(ConfigOverrides, function (err, server) {
 
     sails = server;
 
@@ -23,7 +23,7 @@ before(function(done) {
         email: 'existing.user@email.com',
         password: 'admin1234'
       })
-      .end(function(err) {
+      .end(function (err) {
         done(err, sails);
       });
 
@@ -31,8 +31,7 @@ before(function(done) {
 
 });
 
-after(function(done) {
-
-  sails.lower(done);
-
+after(function (done) {
+  if (!sails) done();
+  else sails.lower(done)
 });
