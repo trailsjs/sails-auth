@@ -289,7 +289,7 @@ passport.loadStrategies = function () {
 
       Strategy = strategies[key].strategy;
 
-      var baseUrl = ''
+      var baseUrl = '';
       if (sails.config.appUrl !== null) {
         baseUrl = sails.config.appUrl
       }
