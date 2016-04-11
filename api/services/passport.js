@@ -119,7 +119,7 @@ passport.connect = function (req, query, profile, next) {
               next(null, user);
             })
             .catch(next);
-            
+
         }
         // Scenario: An existing user is trying to log in using an already
         //           connected passport.
@@ -220,7 +220,7 @@ passport.callback = function (req, res, next) {
     }
     else if (action === 'disconnect' && req.user) {
       this.protocols.local.disconnect(req, res, next);
-    }    
+    }
     else {
       next(new Error('Invalid action'));
     }
@@ -289,7 +289,14 @@ passport.loadStrategies = function () {
 
       Strategy = strategies[key].strategy;
 
-      var baseUrl = sails.getBaseurl();
+      var baseUrl = ''
+      if (sails.config.appUrl !== null) {
+        baseUrl = sails.config.appUrl
+      }
+      else {
+        sails.log.warn('Please add "appUrl" configuration value.');
+        baseUrl = sails.getBaseurl();
+      }
 
       switch (protocol) {
         case 'oauth':
