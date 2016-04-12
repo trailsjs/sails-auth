@@ -8,7 +8,7 @@
  *
  */
 
-exports.authorize = function(token, done) {
+module.exports = function(token, done) {
 
   sails.models.passport.findOne({ accessToken: token }, function(err, passport) {
     if (err) {
