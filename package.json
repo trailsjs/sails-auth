@@ -41,6 +41,7 @@
     "marlinspike": "^0.12",
     "passport": "^0.3",
     "passport-http": "^0.3",
+    "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0"
   },
   "bundledDependencies": [
@@ -48,7 +49,8 @@
     "lodash",
     "passport",
     "passport-http",
-    "passport-local"
+    "passport-local",
+    "passport-http-bearer"
   ],
   "devDependencies": {
     "babel": "^5.8.21",
