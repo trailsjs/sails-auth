@@ -8,7 +8,7 @@
  *
  */
 
-module.exports = function(token, done) {
+module.exports = function(req, token, done) {
 
   sails.models.passport.findOne({ accessToken: token }, function(err, passport) {
     if (err) {
@@ -28,6 +28,9 @@ module.exports = function(token, done) {
         return done(null, false);
       }
 
+      // delete access_token from params
+      // to avoid conflicts with blueprints query builder
+      delete req.query.access_token;
       return done(null, user, { scope: 'all' });
     });
   });
