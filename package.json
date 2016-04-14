@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/tjwebb/sails-auth",
   "dependencies": {
+    "base64url": "^1.0.6",
     "bcryptjs": "^2.2",
     "lodash": "^3.10",
     "marlinspike": "^0.12",
