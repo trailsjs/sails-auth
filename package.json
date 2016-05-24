@@ -36,11 +36,13 @@
   },
   "homepage": "https://github.com/tjwebb/sails-auth",
   "dependencies": {
+    "base64url": "^1.0.6",
     "bcryptjs": "^2.2",
     "lodash": "^3.10",
     "marlinspike": "^0.12",
     "passport": "^0.3",
     "passport-http": "^0.3",
+    "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0"
   },
   "bundledDependencies": [
@@ -48,7 +50,8 @@
     "lodash",
     "passport",
     "passport-http",
-    "passport-local"
+    "passport-local",
+    "passport-http-bearer"
   ],
   "devDependencies": {
     "babel": "^5.8.21",
