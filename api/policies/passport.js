@@ -1,5 +1,3 @@
-var passport = require('passport');
-
 /**
  * Passport Middleware
  *
@@ -23,11 +21,14 @@ var passport = require('passport');
  * @param {Object}   res
  * @param {Function} next
  */
-var http = require('http');
+var http = require('http'),
+  passport = require('passport'),
+  _ = require('lodash');
+  
 var methods = ['login', 'logIn', 'logout', 'logOut', 'isAuthenticated', 'isUnauthenticated'];
 
 module.exports = function (req, res, next) {
-  var passport = require('passport');
+  
 
   // Initialize Passport
   passport.initialize()(req, res, function () {
