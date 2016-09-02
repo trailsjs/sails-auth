@@ -1,6 +1,6 @@
 {
   "name": "sails-auth",
-  "version": "2.1.5",
+  "version": "2.2.0",
   "description": "Passport-based User Authentication system for sails.js applications.",
   "main": "dist/api/hooks/auth/index.js",
   "scripts": {
