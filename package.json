@@ -61,7 +61,7 @@
     "sails": "balderdashy/sails",
     "socket.io-client": "^1.3.5",
     "supertest": "^0.15.0",
-    "waterline-sqlite3": "^0.12.1"
+    "waterline-sqlite3": "^1.0.3"
   },
   "engines": {
     "node": ">= 0.12",
