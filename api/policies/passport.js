@@ -22,7 +22,7 @@
  * @param {Function} next
  */
 var http = require('http'),
-  passport = require('passport'),
+  passport = sails.services.passport,
   _ = require('lodash');
   
 var methods = ['login', 'logIn', 'logout', 'logOut', 'isAuthenticated', 'isUnauthenticated'];
