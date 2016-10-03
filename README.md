@@ -1,5 +1,8 @@
 # sails-auth
 
+[![Looking for maintainers][hacktober-image]][hacktober-url]
+
+
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
@@ -73,3 +76,5 @@ MIT
 [travis-url]: https://travis-ci.org/langateam/sails-auth
 [daviddm-image]: http://img.shields.io/david/langateam/sails-auth.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/langateam/sails-auth
+[hacktober-image]: http://i.imgur.com/FM9yVCI.png
+[hacktober-url]: https://twitter.com/langateam/status/782995392212369408
