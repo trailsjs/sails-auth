@@ -198,13 +198,9 @@ exports.login = function (req, identifier, password, next) {
     }
 
     if (!user) {
-      if (isEmail) {
-        req.flash('error', 'Error.Passport.Email.NotFound');
-      } else {
-        req.flash('error', 'Error.Passport.Username.NotFound');
-      }
-
-      return next(null, false);
+      var message = sails.__((isEmail) ? 'Error.Passport.Email.NotFound' : 'Error.Passport.Username.NotFound');
+      req.flash('error', message);
+      return next(new SAError({message}), false);
     }
 
     sails.models.passport.findOne({
